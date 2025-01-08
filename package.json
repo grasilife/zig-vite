@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "zigvite": "cd src-zig && zig build run",
-    "dev": "npm run zigvite && vite",
-    "build": "npm run zigvite && vite build",
+    "zig": "cd src-zig && zig build run",
+    "zigui": "vite && npm run zig ",
+    "dev": "vite",
+    "build": "npm run zig && vite build",
     "serve": "vite preview"
   },
   "dependencies": {
