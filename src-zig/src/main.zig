@@ -9,7 +9,7 @@ pub fn main() !void {
     defer w.destroy();
 
     const is_dev: bool = true;
-    const path = if (is_dev) "http://localhost:3020" else "./dist/index.html";
+    const path = if (is_dev) "http://localhost:1420" else "./dist/index.html";
 
     // 打印路径
     std.debug.print("path: {s}\n", .{path});
@@ -28,7 +28,7 @@ pub fn main() !void {
     // 设置 WebView 属性
     w.setTitle("Basic Example"); // 移除 try，因为 setTitle 返回的是 void
     w.setSize(480, 320, WebView.WindowSizeHint.None); // 移除 try，因为 setSize 返回的是 void
-    w.setHtml("Thanks for using webview!");
+    // w.setHtml("Thanks for using webview!");
     // 运行 WebView
     w.run(); // 移除 try，因为 run 返回的是 void
 }
