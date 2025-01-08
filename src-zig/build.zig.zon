@@ -1,0 +1,35 @@
+.{
+    // 这是包的默认名称，其他依赖此包的包会使用这个名称。
+    // 例如，当用户运行 `zig fetch --save <url>` 时，这个字段会作为 `dependencies` 表中的键。
+    // 尽管用户可以选择不同的名称，但大多数用户会使用这个提供的默认值。
+    //
+    // 包名中包含 "zig" 是多余的，因为它已经位于 Zig 包命名空间内。
+    .name = "zip-app",
+
+    // 这是[语义化版本号](https://semver.org/)，用于标识包的版本。
+    // 在未来的 Zig 版本中，它将用于包的去重。
+    .version = "0.0.0",
+
+    // 这个字段是可选的。
+    // 目前它只是一个建议字段；Zig 目前并没有使用这个值。
+    //.minimum_zig_version = "0.11.0",
+
+    // 这个字段是可选的。
+    // 每个依赖项必须提供一个 `url` 和 `hash`，或者一个 `path`。
+    // 使用 `zig build --fetch` 可以获取包的所有依赖，递归地。
+    // 一旦所有依赖项被获取，`zig build` 不再需要互联网连接。
+    .dependencies = .{
+        .webview = .{
+            .url = "https://github.com/thechampagne/webview-zig/archive/refs/heads/main.tar.gz",
+            .hash = "1220160fdecbf364434879b7dc3473303cc0d774096b16fef731da3c86741542aecb",
+        },
+    },
+    .paths = .{
+        "build.zig", // 包含构建脚本
+        "build.zig.zon", // 可能是 Zig 包的其他配置文件
+        "src", // 包含源代码目录
+        // 例如...
+        //"LICENSE",   // 包含许可证文件
+        //"README.md", // 包含 README 文件
+    },
+}
