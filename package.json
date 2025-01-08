@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "zig": "cd src-zig && zig build run",
-    "zigui": "vite && npm run zig ",
+    "zigui": "concurrently 'npm run dev' 'wait-on tcp:1420 && npm run zig'",
     "dev": "vite",
     "build": "npm run zig && vite build",
     "serve": "vite preview"
@@ -16,8 +16,10 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "concurrently": "^9.1.2",
     "typescript": "~5.6.2",
     "vite": "^6.0.5",
-    "vue-tsc": "^2.2.0"
+    "vue-tsc": "^2.2.0",
+    "wait-on": "^8.0.1"
   }
 }
